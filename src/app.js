@@ -8,12 +8,15 @@ const authRoutes  = require('./routes/auth');
 const roomRoutes  = require('./routes/rooms');
 const userRoutes  = require('./routes/users');
 
+const path = require('path');
+
 const app = express();
 
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors());
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/health', (_req, res) => res.json({ status: 'ok', ts: new Date() }));
 
