@@ -18,7 +18,7 @@
     /* AUTH */
     #auth-screen { display: flex; align-items: center; justify-content: center; height: 100vh; background: radial-gradient(ellipse at 50% 0%, #1e1040 0%, var(--bg) 70%); }
     .auth-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 40px; width: 380px; box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
-    .auth-card h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; background: linear-gradient(135deg, #fff, var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .auth-card h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; background: linear-gradient(135deg,#fff,var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .auth-card p { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
     .tabs { display: flex; gap: 4px; margin-bottom: 24px; background: var(--surface2); border-radius: 8px; padding: 4px; }
     .tab { flex: 1; padding: 8px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; background: transparent; color: var(--muted); transition: all 0.2s; }
@@ -34,109 +34,118 @@
     /* APP */
     #app { display: none; height: 100vh; flex-direction: column; }
     #app.visible { display: flex; }
-
-    /* TOPBAR */
     .topbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0; }
     .topbar-left { display: flex; align-items: center; gap: 10px; }
     .topbar-logo { font-size: 18px; font-weight: 700; color: var(--accent2); }
     .online-badge { font-size: 11px; padding: 2px 8px; border-radius: 99px; background: rgba(74,222,128,0.15); color: var(--success); border: 1px solid rgba(74,222,128,0.3); }
     .user-info { display: flex; align-items: center; gap: 8px; }
-    .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
     .logout-btn { padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--muted); font-size: 12px; cursor: pointer; transition: all 0.2s; }
     .logout-btn:hover { border-color: var(--danger); color: var(--danger); }
-
-    /* LAYOUT */
     .layout { display: flex; flex: 1; overflow: hidden; }
 
     /* SIDEBAR */
-    .sidebar { width: 280px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
-    .sidebar-section { border-bottom: 1px solid var(--border); }
-    .sidebar-header { padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+    .sidebar { width: 270px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
+    .sidebar-header { padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
     .sidebar-header h2 { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-    .sidebar-header-actions { display: flex; gap: 6px; }
-    .icon-btn { width: 26px; height: 26px; border-radius: 6px; border: none; color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .icon-btn.add { background: var(--accent); }
-    .icon-btn.discover { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); font-size: 14px; }
-    .icon-btn.discover:hover { border-color: var(--accent); color: var(--accent); }
-    .room-list { overflow-y: auto; padding: 6px; }
-    .my-rooms { flex: 1; overflow-y: auto; }
-    .room-item { padding: 9px 12px; border-radius: 8px; cursor: pointer; transition: background 0.15s; display: flex; align-items: center; gap: 10px; }
+    .sidebar-actions { display: flex; gap: 5px; }
+    .icon-btn { width: 26px; height: 26px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface2); color: var(--muted); font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .icon-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-size: 16px; }
+    .room-list { flex: 1; overflow-y: auto; padding: 6px; }
+    .room-item { padding: 9px 10px; border-radius: 8px; cursor: pointer; transition: background 0.15s; display: flex; align-items: center; gap: 9px; position: relative; }
     .room-item:hover { background: var(--surface2); }
-    .room-item.active { background: rgba(124,106,255,0.15); border: 1px solid rgba(124,106,255,0.3); }
+    .room-item.active { background: rgba(124,106,255,0.15); border: 1px solid rgba(124,106,255,0.25); }
     .room-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--surface2); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
     .room-item.active .room-icon { background: rgba(124,106,255,0.2); }
     .room-info { flex: 1; min-width: 0; }
     .room-name { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .room-preview { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .room-preview { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+    .unread-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
     .sidebar-footer { padding: 10px; border-top: 1px solid var(--border); }
     .dm-btn { width: 100%; padding: 8px; border: 1px dashed var(--border); border-radius: 8px; background: transparent; color: var(--muted); font-size: 13px; cursor: pointer; transition: all 0.2s; }
     .dm-btn:hover { border-color: var(--accent); color: var(--accent); }
 
     /* CHAT */
     .chat-area { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
-    .chat-header { padding: 12px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; background: var(--surface); }
-    .chat-header-left { display: flex; align-items: center; gap: 12px; }
-    .chat-room-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(124,106,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .chat-header { padding: 10px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; background: var(--surface); }
+    .chat-header-left { display: flex; align-items: center; gap: 10px; }
+    .chat-room-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(124,106,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
     .chat-room-name { font-size: 15px; font-weight: 600; }
-    .chat-room-members { font-size: 11px; color: var(--muted); }
-    .add-member-btn { padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--muted); font-size: 12px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
-    .add-member-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .chat-room-sub { font-size: 11px; color: var(--muted); }
+    .header-actions { display: flex; gap: 6px; }
+    .header-btn { padding: 5px 11px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--muted); font-size: 12px; cursor: pointer; transition: all 0.2s; }
+    .header-btn:hover { border-color: var(--accent); color: var(--accent); }
     .empty-state { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--muted); }
-    .empty-state .big-icon { font-size: 56px; }
-    .empty-state h2 { font-size: 20px; font-weight: 600; color: var(--text); }
-    .empty-state p { font-size: 14px; }
-    .messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 4px; }
-    .msg-group { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+    .empty-state .big-icon { font-size: 52px; }
+    .empty-state h2 { font-size: 18px; font-weight: 600; color: var(--text); }
+    .empty-state p { font-size: 13px; }
+    .messages { flex: 1; overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 2px; }
+    .msg-group { display: flex; flex-direction: column; gap: 2px; margin-bottom: 6px; }
     .msg-group.out { align-items: flex-end; }
     .msg-group.in  { align-items: flex-start; }
     .msg-sender { font-size: 11px; color: var(--muted); margin-bottom: 3px; padding: 0 4px; }
-    .msg-bubble { max-width: 65%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.5; word-break: break-word; }
+    .msg-bubble { max-width: 65%; padding: 9px 13px; border-radius: 14px; font-size: 14px; line-height: 1.5; word-break: break-word; }
     .msg-group.out .msg-bubble { background: var(--msg-out); border-bottom-right-radius: 4px; }
     .msg-group.in  .msg-bubble { background: var(--msg-in); border-bottom-left-radius: 4px; border: 1px solid var(--border); }
     .msg-meta { display: flex; align-items: center; gap: 4px; font-size: 10px; color: var(--muted); padding: 0 4px; }
-    .msg-status { font-size: 12px; }
+    .msg-status { font-size: 11px; }
     .msg-status.sent { color: var(--muted); }
     .msg-status.delivered { color: var(--muted); }
     .msg-status.read { color: #60a5fa; }
-    .typing-area { height: 20px; padding: 0 20px; font-size: 12px; color: var(--muted); font-style: italic; display: flex; align-items: center; flex-shrink: 0; }
+    .typing-area { height: 22px; padding: 0 20px; font-size: 12px; color: var(--muted); font-style: italic; display: flex; align-items: center; flex-shrink: 0; }
     .typing-dots span { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); margin: 0 1px; animation: bounce 1.2s infinite; }
     .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
     .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
-    .input-bar { padding: 14px 20px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; background: var(--surface); flex-shrink: 0; }
+    @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-4px)} }
+    .input-bar { padding: 12px 18px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; background: var(--surface); flex-shrink: 0; }
     .msg-input { flex: 1; padding: 10px 16px; background: var(--surface2); border: 1px solid var(--border); border-radius: 24px; color: var(--text); font-size: 14px; outline: none; transition: border 0.2s; }
     .msg-input:focus { border-color: var(--accent); }
-    .send-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); border: none; color: #fff; font-size: 18px; cursor: pointer; transition: opacity 0.2s; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .send-btn { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); border: none; color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .send-btn:hover { opacity: 0.85; }
 
     /* MODALS */
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 100; }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); display: none; align-items: center; justify-content: center; z-index: 100; }
     .modal-overlay.open { display: flex; }
-    .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; width: 380px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); max-height: 80vh; display: flex; flex-direction: column; }
-    .modal h3 { font-size: 18px; font-weight: 600; margin-bottom: 20px; flex-shrink: 0; }
-    .modal-footer { display: flex; gap: 10px; margin-top: 20px; flex-shrink: 0; }
-    .btn-outline { flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--text); font-size: 14px; cursor: pointer; }
-    .btn-primary { flex: 1; padding: 10px; border: none; border-radius: 8px; background: var(--accent); color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 26px; width: 400px; max-height: 80vh; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+    .modal h3 { font-size: 17px; font-weight: 600; margin-bottom: 18px; flex-shrink: 0; }
+    .modal-scroll { flex: 1; overflow-y: auto; }
+    .modal-footer { display: flex; gap: 10px; margin-top: 18px; flex-shrink: 0; }
+    .btn-outline { flex: 1; padding: 9px; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--text); font-size: 14px; cursor: pointer; }
+    .btn-primary { flex: 1; padding: 9px; border: none; border-radius: 8px; background: var(--accent); color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; }
 
-    /* DISCOVER LIST */
-    .discover-list { flex: 1; overflow-y: auto; margin-top: 8px; }
-    .discover-item { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 8px; }
-    .discover-item-info { flex: 1; min-width: 0; }
-    .discover-item-name { font-size: 14px; font-weight: 500; }
-    .discover-item-desc { font-size: 12px; color: var(--muted); }
-    .join-btn { padding: 6px 14px; border: none; border-radius: 6px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    /* ROOM INFO */
+    .info-section { margin-bottom: 18px; }
+    .info-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-bottom: 8px; }
+    .info-id-box { display: flex; align-items: center; gap: 8px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; }
+    .info-id-box code { flex: 1; font-size: 12px; color: var(--accent2); font-family: monospace; word-break: break-all; }
+    .copy-btn { padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--muted); font-size: 11px; cursor: pointer; white-space: nowrap; transition: all 0.2s; flex-shrink: 0; }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .member-list { display: flex; flex-direction: column; gap: 6px; }
+    .member-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; background: var(--surface2); }
+    .member-name { font-size: 14px; }
+    .member-you { font-size: 11px; color: var(--accent2); margin-left: 4px; }
+
+    /* DISCOVER */
+    .discover-item { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 8px; }
+    .discover-info { flex: 1; min-width: 0; }
+    .discover-name { font-size: 13px; font-weight: 500; }
+    .discover-desc { font-size: 11px; color: var(--muted); }
+    .join-btn { padding: 5px 12px; border: none; border-radius: 6px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; }
     .join-btn:hover { opacity: 0.85; }
-    .joined-tag { padding: 6px 14px; border-radius: 6px; background: rgba(74,222,128,0.1); color: var(--success); font-size: 13px; border: 1px solid rgba(74,222,128,0.3); }
+    .joined-tag { padding: 5px 12px; border-radius: 6px; background: rgba(74,222,128,0.1); color: var(--success); font-size: 12px; border: 1px solid rgba(74,222,128,0.3); }
 
-    /* USER SEARCH RESULTS */
-    .user-result { padding: 10px 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.15s; }
+    /* USER RESULTS */
+    .user-result { padding: 9px 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.15s; }
     .user-result:hover { background: var(--surface2); }
+    .user-result-name { font-size: 14px; }
+    .user-result-action { margin-left: auto; font-size: 12px; color: var(--accent); }
 
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
-    .toast { position: fixed; bottom: 24px; right: 24px; padding: 12px 18px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-size: 13px; z-index: 200; transform: translateY(20px); opacity: 0; transition: all 0.3s; pointer-events: none; }
+    .toast { position: fixed; bottom: 24px; right: 24px; padding: 11px 16px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-size: 13px; z-index: 200; transform: translateY(16px); opacity: 0; transition: all 0.3s; pointer-events: none; max-width: 300px; }
     .toast.show { transform: translateY(0); opacity: 1; }
   </style>
 </head>
@@ -175,37 +184,33 @@
     </div>
     <div class="user-info">
       <div class="avatar" id="user-avatar">?</div>
-      <span class="username" id="user-name"></span>
+      <span id="user-name" style="font-size:14px;font-weight:500;"></span>
       <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
   </div>
 
   <div class="layout">
-    <!-- Sidebar -->
     <div class="sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-header">
-          <h2>My Rooms</h2>
-          <div class="sidebar-header-actions">
-            <button class="icon-btn discover" onclick="openDiscoverModal()" title="Browse & Join Rooms">🔍</button>
-            <button class="icon-btn add" onclick="openNewRoomModal()" title="Create New Room">+</button>
-          </div>
+      <div class="sidebar-header">
+        <h2>Rooms</h2>
+        <div class="sidebar-actions">
+          <button class="icon-btn" onclick="openDiscoverModal()" title="Browse rooms">🔍</button>
+          <button class="icon-btn primary" onclick="openNewRoomModal()" title="Create room">+</button>
         </div>
-        <div class="room-list my-rooms" id="room-list" style="max-height:calc(100vh - 200px)">
-          <div style="padding:20px;text-align:center;color:var(--muted);font-size:13px;">No rooms yet.<br/>Create one or browse!</div>
-        </div>
+      </div>
+      <div class="room-list" id="room-list">
+        <div style="padding:20px;text-align:center;color:var(--muted);font-size:13px;">No rooms yet</div>
       </div>
       <div class="sidebar-footer">
         <button class="dm-btn" onclick="openDMModal()">💬 Start Direct Message</button>
       </div>
     </div>
 
-    <!-- Chat -->
     <div class="chat-area" id="chat-area">
       <div class="empty-state">
         <div class="big-icon">💬</div>
-        <h2>Select a room to start chatting</h2>
-        <p>Create a room, browse existing ones, or start a DM</p>
+        <h2>Select a room to chat</h2>
+        <p>Create a room, browse rooms, or start a DM</p>
       </div>
     </div>
   </div>
@@ -213,54 +218,58 @@
 
 <!-- New Room Modal -->
 <div class="modal-overlay" id="new-room-modal">
-  <div class="modal">
-    <h3>Create New Room</h3>
+  <div class="modal" style="width:380px;">
+    <h3>✨ Create Room</h3>
     <div class="form-group"><label>Room Name</label><input type="text" id="new-room-name" placeholder="e.g. general" /></div>
-    <div class="form-group"><label>Description (optional)</label><input type="text" id="new-room-desc" placeholder="What's this room about?" /></div>
+    <div class="form-group"><label>Description (optional)</label><input type="text" id="new-room-desc" placeholder="What's this about?" /></div>
     <div class="modal-footer">
       <button class="btn-outline" onclick="closeModal('new-room-modal')">Cancel</button>
-      <button class="btn-primary" onclick="createRoom()">Create Room</button>
+      <button class="btn-primary" onclick="createRoom()">Create</button>
     </div>
   </div>
 </div>
 
-<!-- Discover Rooms Modal -->
-<div class="modal-overlay" id="discover-modal">
-  <div class="modal" style="width:460px;">
-    <h3>🔍 Browse & Join Rooms</h3>
-    <div class="discover-list" id="discover-list">
-      <div style="color:var(--muted);font-size:13px;text-align:center;padding:20px;">Loading rooms...</div>
-    </div>
+<!-- Room Info Modal -->
+<div class="modal-overlay" id="room-info-modal">
+  <div class="modal" style="width:420px;">
+    <h3 id="ri-title">Room Info</h3>
+    <div class="modal-scroll" id="ri-body"></div>
     <div class="modal-footer">
-      <button class="btn-outline" onclick="closeModal('discover-modal')">Close</button>
+      <button class="btn-outline" onclick="closeModal('room-info-modal')">Close</button>
+      <button class="btn-primary" onclick="openAddMemberModal()">➕ Add Member</button>
     </div>
   </div>
 </div>
 
 <!-- Add Member Modal -->
 <div class="modal-overlay" id="add-member-modal">
-  <div class="modal">
+  <div class="modal" style="width:380px;">
     <h3>➕ Add Member</h3>
-    <div class="form-group">
-      <label>Search by Username</label>
-      <input type="text" id="add-member-search" placeholder="Type a username..." oninput="searchForMember()" />
-    </div>
-    <div id="add-member-results" style="max-height:200px;overflow-y:auto;"></div>
+    <div class="form-group"><label>Search Username</label><input type="text" id="add-member-search" placeholder="Type a username..." oninput="searchForMember()" /></div>
+    <div class="modal-scroll" id="add-member-results"></div>
     <div class="modal-footer">
       <button class="btn-outline" onclick="closeModal('add-member-modal')">Close</button>
     </div>
   </div>
 </div>
 
+<!-- Discover Modal -->
+<div class="modal-overlay" id="discover-modal">
+  <div class="modal" style="width:440px;">
+    <h3>🔍 Browse Rooms</h3>
+    <div class="modal-scroll" id="discover-list" style="max-height:360px;"></div>
+    <div class="modal-footer">
+      <button class="btn-outline" onclick="closeModal('discover-modal')">Close</button>
+    </div>
+  </div>
+</div>
+
 <!-- DM Modal -->
 <div class="modal-overlay" id="dm-modal">
-  <div class="modal">
-    <h3>💬 Start Direct Message</h3>
-    <div class="form-group">
-      <label>Search Username</label>
-      <input type="text" id="dm-search" placeholder="Type a username..." oninput="searchUsers()" />
-    </div>
-    <div id="dm-results" style="max-height:200px;overflow-y:auto;margin-top:8px;"></div>
+  <div class="modal" style="width:380px;">
+    <h3>💬 Direct Message</h3>
+    <div class="form-group"><label>Search Username</label><input type="text" id="dm-search" placeholder="Type a username..." oninput="searchUsers()" /></div>
+    <div class="modal-scroll" id="dm-results" style="max-height:240px;"></div>
     <div class="modal-footer">
       <button class="btn-outline" onclick="closeModal('dm-modal')">Cancel</button>
     </div>
@@ -276,393 +285,442 @@
   let socket = null;
   let currentRoomId = null;
   let currentRoomType = 'group';
+  let myRooms = [];
   let typingTimer = null;
   let isTyping = false;
   let typingUsers = {};
-  let myRooms = [];
+  let unreadRooms = new Set();
 
   window.onload = () => { if (token && currentUser) showApp(); };
 
   // ── AUTH ──
   function switchTab(tab) {
-    document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', (i === 0) === (tab === 'login')));
-    document.getElementById('login-form').style.display    = tab === 'login'    ? 'block' : 'none';
-    document.getElementById('register-form').style.display = tab === 'register' ? 'block' : 'none';
+    document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active',(i===0)===(tab==='login')));
+    document.getElementById('login-form').style.display    = tab==='login'    ? 'block':'none';
+    document.getElementById('register-form').style.display = tab==='register' ? 'block':'none';
     document.getElementById('auth-error').style.display = 'none';
   }
-
-  function showAuthError(msg) {
-    const el = document.getElementById('auth-error');
-    el.textContent = msg; el.style.display = 'block';
-  }
+  function showAuthError(msg) { const el=document.getElementById('auth-error'); el.textContent=msg; el.style.display='block'; }
 
   async function login() {
-    const email = document.getElementById('login-email').value.trim();
-    const password = document.getElementById('login-password').value;
-    if (!email || !password) return showAuthError('Fill in all fields');
+    const email=document.getElementById('login-email').value.trim(), password=document.getElementById('login-password').value;
+    if (!email||!password) return showAuthError('Fill in all fields');
     try {
-      const res = await fetch(`${API}/auth/login`, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email,password}) });
-      const data = await res.json();
-      if (!res.ok) return showAuthError(data.error || 'Login failed');
+      const res=await fetch(`${API}/auth/login`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+      const data=await res.json();
+      if (!res.ok) return showAuthError(data.error||'Login failed');
       saveSession(data); showApp();
     } catch { showAuthError('Network error'); }
   }
 
   async function register() {
-    const username = document.getElementById('reg-username').value.trim();
-    const email    = document.getElementById('reg-email').value.trim();
-    const password = document.getElementById('reg-password').value;
-    if (!username || !email || !password) return showAuthError('Fill in all fields');
+    const username=document.getElementById('reg-username').value.trim(),email=document.getElementById('reg-email').value.trim(),password=document.getElementById('reg-password').value;
+    if (!username||!email||!password) return showAuthError('Fill in all fields');
     try {
-      const res = await fetch(`${API}/auth/register`, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({username,email,password}) });
-      const data = await res.json();
-      if (!res.ok) return showAuthError(data.error || 'Registration failed');
+      const res=await fetch(`${API}/auth/register`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username,email,password})});
+      const data=await res.json();
+      if (!res.ok) return showAuthError(data.error||'Registration failed');
       saveSession(data); showApp();
     } catch { showAuthError('Network error'); }
   }
 
   function saveSession(data) {
-    token = data.accessToken; currentUser = data.user;
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(currentUser));
+    token=data.accessToken; currentUser=data.user;
+    localStorage.setItem('token',token); localStorage.setItem('user',JSON.stringify(currentUser));
   }
 
   function logout() {
-    socket?.disconnect();
-    localStorage.clear();
-    token = null; currentUser = null; socket = null; currentRoomId = null; myRooms = [];
+    socket?.disconnect(); localStorage.clear();
+    token=null; currentUser=null; socket=null; currentRoomId=null; myRooms=[];
     document.getElementById('app').classList.remove('visible');
-    document.getElementById('auth-screen').style.display = 'flex';
+    document.getElementById('auth-screen').style.display='flex';
   }
 
-  // ── SHOW APP ──
+  // ── APP ──
   function showApp() {
-    document.getElementById('auth-screen').style.display = 'none';
+    document.getElementById('auth-screen').style.display='none';
     document.getElementById('app').classList.add('visible');
-    document.getElementById('user-avatar').textContent = currentUser.username[0].toUpperCase();
-    document.getElementById('user-name').textContent   = currentUser.username;
-    connectSocket();
-    loadRooms();
+    document.getElementById('user-avatar').textContent=currentUser.username[0].toUpperCase();
+    document.getElementById('user-name').textContent=currentUser.username;
+    connectSocket(); loadRooms();
   }
 
   // ── SOCKET ──
   function connectSocket() {
-    socket = io(`${API}/chat`, { auth: { token }, reconnection: true, reconnectionDelay: 1000 });
-    socket.on('connect', () => { setBadge('● Online', '#4ade80'); setInterval(() => socket.emit('heartbeat'), 20000); });
-    socket.on('disconnect', () => setBadge('● Offline', '#f87171'));
-    socket.on('connect_error', () => setBadge('● Auth Error', '#f87171'));
+    socket=io(`${API}/chat`,{auth:{token},reconnection:true,reconnectionDelay:1000});
+    socket.on('connect',()=>{ setBadge('● Online','#4ade80'); setInterval(()=>socket.emit('heartbeat'),20000); });
+    socket.on('disconnect',()=>setBadge('● Offline','#f87171'));
+    socket.on('connect_error',()=>setBadge('● Auth Error','#f87171'));
     socket.on('new_message',         onNewMessage);
     socket.on('message_status',      onMessageStatus);
     socket.on('user_typing',         onUserTyping);
     socket.on('user_stopped_typing', onUserStoppedTyping);
     socket.on('missed_messages',     onMissedMessages);
-    socket.on('messages_read',       () => updateReadReceipts());
+    socket.on('messages_read',       ()=>updateReadReceipts());
+
+    // someone sent us a DM — add to sidebar instantly
+    socket.on('new_dm', ({ room, from }) => {
+      const exists = myRooms.find(r=>r._id===room._id);
+      if (!exists) {
+        myRooms.unshift(room);
+        renderRoomList(myRooms);
+        unreadRooms.add(room._id);
+        showToast(`💬 New DM from ${from.username}`);
+      }
+    });
+
+    // we were added to a group room
+    socket.on('added_to_room', ({ room }) => {
+      const exists = myRooms.find(r=>r._id===room._id);
+      if (!exists) {
+        myRooms.unshift(room);
+        renderRoomList(myRooms);
+        unreadRooms.add(room._id);
+        showToast(`🎉 You were added to "${room.name}"`);
+      }
+    });
   }
 
-  function setBadge(text, color) {
-    const b = document.getElementById('conn-badge');
-    b.textContent = text; b.style.color = color;
-  }
+  function setBadge(text,color){ const b=document.getElementById('conn-badge'); b.textContent=text; b.style.color=color; }
 
   // ── ROOMS ──
   async function loadRooms() {
-    const res = await apiFetch('/rooms');
-    myRooms = await res.json();
-    renderRoomList(myRooms);
+    const res=await apiFetch('/rooms'); myRooms=await res.json(); renderRoomList(myRooms);
   }
 
   function renderRoomList(rooms) {
-    const list = document.getElementById('room-list');
-    if (!rooms.length) {
-      list.innerHTML = '<div style="padding:20px;text-align:center;color:var(--muted);font-size:13px;">No rooms yet.<br/>Create one or browse!</div>';
-      return;
-    }
-    list.innerHTML = rooms.map(r => `
-      <div class="room-item ${r._id === currentRoomId ? 'active' : ''}" onclick="joinRoom('${r._id}','${escHtml(r.name)}','${r.type}')">
-        <div class="room-icon">${r.type === 'dm' ? '👤' : '#'}</div>
-        <div class="room-info">
-          <div class="room-name">${escHtml(r.type === 'dm' ? 'Direct Message' : r.name)}</div>
-          <div class="room-preview">${r.type === 'dm' ? 'Private conversation' : (r.description || 'No description')}</div>
-        </div>
-      </div>`).join('');
+    const list=document.getElementById('room-list');
+    if (!rooms.length) { list.innerHTML='<div style="padding:20px;text-align:center;color:var(--muted);font-size:13px;">No rooms yet</div>'; return; }
+    list.innerHTML=rooms.map(r=>{
+      const isDM=r.type==='dm';
+      const hasUnread=unreadRooms.has(r._id);
+      const displayName=isDM ? 'Direct Message' : r.name;
+      return `
+        <div class="room-item ${r._id===currentRoomId?'active':''}" onclick="joinRoom('${r._id}','${escHtml(r.name)}','${r.type}')">
+          <div class="room-icon">${isDM?'👤':'#'}</div>
+          <div class="room-info">
+            <div class="room-name">${escHtml(displayName)}</div>
+            <div class="room-preview">${isDM?'Direct message':(r.description||'Group room')}</div>
+          </div>
+          ${hasUnread?'<div class="unread-dot"></div>':''}
+        </div>`;
+    }).join('');
   }
 
   async function joinRoom(roomId, roomName, roomType) {
-    currentRoomId = roomId;
-    currentRoomType = roomType || 'group';
-    typingUsers = {};
-    const isDM = roomType === 'dm';
+    currentRoomId=roomId; currentRoomType=roomType||'group';
+    typingUsers={}; unreadRooms.delete(roomId);
+    const isDM=roomType==='dm';
 
-    document.querySelectorAll('.room-item').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.room-item').forEach(el => { if (el.onclick?.toString().includes(roomId)) el.classList.add('active'); });
+    // update sidebar active
+    renderRoomList(myRooms);
 
-    document.getElementById('chat-area').innerHTML = `
+    document.getElementById('chat-area').innerHTML=`
       <div class="chat-header">
         <div class="chat-header-left">
-          <div class="chat-room-icon">${isDM ? '👤' : '#'}</div>
+          <div class="chat-room-icon">${isDM?'👤':'#'}</div>
           <div>
-            <div class="chat-room-name">${escHtml(isDM ? 'Direct Message' : roomName)}</div>
-            <div class="chat-room-members" id="chat-members">${isDM ? 'Private conversation' : 'Group room'}</div>
+            <div class="chat-room-name">${escHtml(isDM?'Direct Message':roomName)}</div>
+            <div class="chat-room-sub" id="chat-sub">${isDM?'Private conversation':'Loading members...'}</div>
           </div>
         </div>
-        ${!isDM ? `<button class="add-member-btn" onclick="openAddMemberModal()">➕ Add Member</button>` : ''}
+        <div class="header-actions">
+          ${!isDM?`<button class="header-btn" onclick="openRoomInfo()">ℹ️ Room Info</button>`:''}
+          ${!isDM?`<button class="header-btn" onclick="openAddMemberModal()">➕ Add Member</button>`:''}
+        </div>
       </div>
       <div class="messages" id="messages"></div>
       <div class="typing-area" id="typing-area"></div>
       <div class="input-bar">
-        <input class="msg-input" id="msg-input" placeholder="Message ${isDM ? '' : '#'}${escHtml(isDM ? '' : roomName)}"
+        <input class="msg-input" id="msg-input"
+               placeholder="Message ${isDM?'':'#'}${escHtml(isDM?'':roomName)}"
                onkeydown="handleKey(event)" oninput="handleTyping()" />
         <button class="send-btn" onclick="sendMessage()">➤</button>
       </div>`;
 
-    const lastSeen = localStorage.getItem(`lastSeen:${roomId}`);
-    socket.emit('join_room', { roomId, lastSeenAt: lastSeen || undefined });
+    const lastSeen=localStorage.getItem(`lastSeen:${roomId}`);
+    socket.emit('join_room',{roomId,lastSeenAt:lastSeen||undefined});
 
-    const res  = await apiFetch(`/rooms/${roomId}/messages?limit=50`);
-    const data = await res.json();
+    const res=await apiFetch(`/rooms/${roomId}/messages?limit=50`);
+    const data=await res.json();
     if (data.messages) renderMessages(data.messages);
 
-    socket.emit('mark_read', { roomId });
-    localStorage.setItem(`lastSeen:${roomId}`, new Date().toISOString());
+    // load member count for header
+    if (!isDM) {
+      const rRes=await apiFetch(`/rooms/${roomId}`);
+      if (rRes.ok) {
+        const room=await rRes.json();
+        const sub=document.getElementById('chat-sub');
+        if (sub) sub.textContent=`${room.members?.length||0} members`;
+      }
+    }
+
+    socket.emit('mark_read',{roomId});
+    localStorage.setItem(`lastSeen:${roomId}`,new Date().toISOString());
     scrollToBottom();
+  }
+
+  // ── ROOM INFO MODAL ──
+  async function openRoomInfo() {
+    if (!currentRoomId) return;
+    document.getElementById('room-info-modal').classList.add('open');
+    document.getElementById('ri-body').innerHTML='<div style="color:var(--muted);font-size:13px;padding:10px;">Loading...</div>';
+    const res=await apiFetch(`/rooms/${currentRoomId}`);
+    if (!res.ok) return;
+    const room=await res.json();
+    document.getElementById('ri-title').textContent=`# ${room.name}`;
+    document.getElementById('ri-body').innerHTML=`
+      <div class="info-section">
+        <div class="info-label">Room ID <span style="color:var(--muted);font-weight:400;text-transform:none;">(share this so others can join)</span></div>
+        <div class="info-id-box">
+          <code id="room-id-text">${room._id}</code>
+          <button class="copy-btn" onclick="copyRoomId('${room._id}')">Copy</button>
+        </div>
+      </div>
+      ${room.description?`<div class="info-section"><div class="info-label">Description</div><div style="font-size:13px;color:var(--text);">${escHtml(room.description)}</div></div>`:''}
+      <div class="info-section">
+        <div class="info-label">Members (${room.members?.length||0})</div>
+        <div class="member-list">
+          ${(room.members||[]).map(m=>`
+            <div class="member-row">
+              <div class="avatar" style="width:30px;height:30px;font-size:12px;">${m.username[0].toUpperCase()}</div>
+              <span class="member-name">${escHtml(m.username)}</span>
+              ${m._id===currentUser.id?'<span class="member-you">(you)</span>':''}
+              ${room.createdBy?._id===m._id||room.createdBy===m._id?'<span style="margin-left:auto;font-size:11px;color:var(--accent2);">creator</span>':''}
+            </div>`).join('')}
+        </div>
+      </div>`;
+  }
+
+  function copyRoomId(id) {
+    navigator.clipboard.writeText(id).then(()=>showToast('Room ID copied!')).catch(()=>showToast('Copy failed'));
   }
 
   // ── CREATE ROOM ──
   async function createRoom() {
-    const name = document.getElementById('new-room-name').value.trim();
-    const desc = document.getElementById('new-room-desc').value.trim();
+    const name=document.getElementById('new-room-name').value.trim();
+    const desc=document.getElementById('new-room-desc').value.trim();
     if (!name) return showToast('Room name is required');
-    const res = await apiFetch('/rooms', 'POST', { name, description: desc });
+    const res=await apiFetch('/rooms','POST',{name,description:desc});
     if (res.ok) {
+      const room=await res.json();
       closeModal('new-room-modal');
-      document.getElementById('new-room-name').value = '';
-      document.getElementById('new-room-desc').value = '';
+      document.getElementById('new-room-name').value='';
+      document.getElementById('new-room-desc').value='';
       showToast(`Room "${name}" created!`);
-      await loadRooms();
-      const newRoom = myRooms.find(r => r.name === name);
-      if (newRoom) joinRoom(newRoom._id, newRoom.name, 'group');
+      myRooms.unshift(room);
+      renderRoomList(myRooms);
+      joinRoom(room._id,room.name,'group');
     } else {
-      const d = await res.json();
-      showToast(d.error || 'Failed to create room');
+      const d=await res.json(); showToast(d.error||'Failed to create room');
     }
   }
 
-  // ── DISCOVER & JOIN ──
+  // ── DISCOVER ──
   async function openDiscoverModal() {
     document.getElementById('discover-modal').classList.add('open');
-    document.getElementById('discover-list').innerHTML = '<div style="color:var(--muted);font-size:13px;text-align:center;padding:20px;">Loading...</div>';
-    const res   = await apiFetch('/rooms/discover');
-    const rooms = await res.json();
-    if (!rooms.length) {
-      document.getElementById('discover-list').innerHTML = '<div style="color:var(--muted);font-size:13px;text-align:center;padding:20px;">No rooms to discover yet.<br/>Be the first to create one!</div>';
-      return;
-    }
-    document.getElementById('discover-list').innerHTML = rooms.map(r => `
+    document.getElementById('discover-list').innerHTML='<div style="color:var(--muted);font-size:13px;text-align:center;padding:20px;">Loading...</div>';
+    const res=await apiFetch('/rooms/discover');
+    const rooms=await res.json();
+    if (!rooms.length) { document.getElementById('discover-list').innerHTML='<div style="color:var(--muted);font-size:13px;text-align:center;padding:20px;">No rooms to discover yet</div>'; return; }
+    document.getElementById('discover-list').innerHTML=rooms.map(r=>`
       <div class="discover-item">
-        <div class="room-icon" style="width:38px;height:38px;font-size:18px;">#</div>
-        <div class="discover-item-info">
-          <div class="discover-item-name">${escHtml(r.name)}</div>
-          <div class="discover-item-desc">${escHtml(r.description || 'No description')} · ${r.members?.length || 0} members</div>
+        <div class="room-icon" style="width:36px;height:36px;font-size:16px;">#</div>
+        <div class="discover-info">
+          <div class="discover-name">${escHtml(r.name)}</div>
+          <div class="discover-desc">${escHtml(r.description||'No description')} · ${r.members?.length||0} members</div>
         </div>
-        <button class="join-btn" id="join-btn-${r._id}" onclick="joinPublicRoom('${r._id}','${escHtml(r.name)}')">Join</button>
+        <button class="join-btn" id="jbtn-${r._id}" onclick="joinPublicRoom('${r._id}','${escHtml(r.name)}')">Join</button>
       </div>`).join('');
   }
 
-  async function joinPublicRoom(roomId, roomName) {
-    const res = await apiFetch(`/rooms/${roomId}/join`, 'POST');
+  async function joinPublicRoom(roomId,roomName) {
+    const res=await apiFetch(`/rooms/${roomId}/join`,'POST');
     if (res.ok) {
-      const btn = document.getElementById(`join-btn-${roomId}`);
-      if (btn) btn.outerHTML = `<span class="joined-tag">✓ Joined</span>`;
+      const btn=document.getElementById(`jbtn-${roomId}`);
+      if (btn) btn.outerHTML=`<span class="joined-tag">✓ Joined</span>`;
       showToast(`Joined "${roomName}"!`);
       await loadRooms();
       closeModal('discover-modal');
-      joinRoom(roomId, roomName, 'group');
-    } else {
-      const d = await res.json();
-      showToast(d.error || 'Failed to join');
-    }
+      joinRoom(roomId,roomName,'group');
+    } else { const d=await res.json(); showToast(d.error||'Failed to join'); }
   }
 
   // ── ADD MEMBER ──
   function openAddMemberModal() {
-    document.getElementById('add-member-search').value = '';
-    document.getElementById('add-member-results').innerHTML = '';
+    closeModal('room-info-modal');
+    document.getElementById('add-member-search').value='';
+    document.getElementById('add-member-results').innerHTML='';
     document.getElementById('add-member-modal').classList.add('open');
   }
 
   async function searchForMember() {
-    const q = document.getElementById('add-member-search').value.trim();
-    if (!q) { document.getElementById('add-member-results').innerHTML = ''; return; }
-    const res   = await apiFetch(`/users/search?q=${encodeURIComponent(q)}`);
-    const users = await res.json();
-    document.getElementById('add-member-results').innerHTML = users.length
-      ? users.map(u => `
+    const q=document.getElementById('add-member-search').value.trim();
+    if (!q) { document.getElementById('add-member-results').innerHTML=''; return; }
+    const res=await apiFetch(`/users/search?q=${encodeURIComponent(q)}`);
+    const users=await res.json();
+    document.getElementById('add-member-results').innerHTML=users.length
+      ? users.map(u=>`
           <div class="user-result" onclick="addMember('${u._id}','${escHtml(u.username)}')">
-            <div class="avatar" style="width:32px;height:32px;font-size:13px;">${u.username[0].toUpperCase()}</div>
-            <span style="font-size:14px;">${escHtml(u.username)}</span>
-            <span style="margin-left:auto;font-size:12px;color:var(--accent);">+ Add</span>
+            <div class="avatar" style="width:30px;height:30px;font-size:12px;">${u.username[0].toUpperCase()}</div>
+            <span class="user-result-name">${escHtml(u.username)}</span>
+            <span class="user-result-action">+ Add</span>
           </div>`).join('')
       : '<div style="color:var(--muted);font-size:13px;padding:10px;">No users found</div>';
   }
 
-  async function addMember(userId, username) {
-    const res = await apiFetch(`/rooms/${currentRoomId}/members`, 'POST', { userId });
-    if (res.ok) {
-      showToast(`${username} added to room!`);
-      closeModal('add-member-modal');
-    } else {
-      const d = await res.json();
-      showToast(d.error || 'Failed to add member');
-    }
+  async function addMember(userId,username) {
+    const res=await apiFetch(`/rooms/${currentRoomId}/members`,'POST',{userId});
+    if (res.ok) { showToast(`${username} added!`); closeModal('add-member-modal'); }
+    else { const d=await res.json(); showToast(d.error||'Failed to add'); }
   }
 
   // ── DM ──
+  function openDMModal() { document.getElementById('dm-search').value=''; document.getElementById('dm-results').innerHTML=''; document.getElementById('dm-modal').classList.add('open'); }
+
   async function searchUsers() {
-    const q = document.getElementById('dm-search').value.trim();
-    if (!q) { document.getElementById('dm-results').innerHTML = ''; return; }
-    const res   = await apiFetch(`/users/search?q=${encodeURIComponent(q)}`);
-    const users = await res.json();
-    document.getElementById('dm-results').innerHTML = users.length
-      ? users.map(u => `
+    const q=document.getElementById('dm-search').value.trim();
+    if (!q) { document.getElementById('dm-results').innerHTML=''; return; }
+    const res=await apiFetch(`/users/search?q=${encodeURIComponent(q)}`);
+    const users=await res.json();
+    document.getElementById('dm-results').innerHTML=users.length
+      ? users.map(u=>`
           <div class="user-result" onclick="startDM('${u._id}','${escHtml(u.username)}')">
-            <div class="avatar" style="width:32px;height:32px;font-size:13px;">${u.username[0].toUpperCase()}</div>
-            <span style="font-size:14px;">${escHtml(u.username)}</span>
+            <div class="avatar" style="width:30px;height:30px;font-size:12px;">${u.username[0].toUpperCase()}</div>
+            <span class="user-result-name">${escHtml(u.username)}</span>
           </div>`).join('')
       : '<div style="color:var(--muted);font-size:13px;padding:10px;">No users found</div>';
   }
 
-  async function startDM(targetUserId, username) {
-    const res  = await apiFetch('/rooms/dm', 'POST', { targetUserId });
-    const room = await res.json();
+  async function startDM(targetUserId,username) {
+    const res=await apiFetch('/rooms/dm','POST',{targetUserId});
+    const room=await res.json();
     closeModal('dm-modal');
-    document.getElementById('dm-search').value = '';
-    await loadRooms();
-    joinRoom(room._id, username, 'dm');
+    document.getElementById('dm-search').value='';
+    const exists=myRooms.find(r=>r._id===room._id);
+    if (!exists) { myRooms.unshift(room); }
+    renderRoomList(myRooms);
+    joinRoom(room._id,username,'dm');
   }
 
   // ── MESSAGES ──
   function renderMessages(messages) {
-    const container = document.getElementById('messages');
+    const container=document.getElementById('messages');
     if (!container) return;
-    container.innerHTML = '';
-    let lastSender = null;
-    messages.forEach(msg => {
-      const isOut  = msg.senderId?._id === currentUser.id || msg.senderId === currentUser.id;
-      const sender = msg.senderId?.username || msg.username || 'Unknown';
-      const showSender = !isOut && sender !== lastSender;
-      lastSender = sender;
-      const group = document.createElement('div');
-      group.className = `msg-group ${isOut ? 'out' : 'in'}`;
-      group.dataset.msgId = msg._id || msg.id;
-      group.innerHTML = `
-        ${showSender ? `<div class="msg-sender">${escHtml(sender)}</div>` : ''}
+    container.innerHTML='';
+    let lastSender=null;
+    messages.forEach(msg=>{
+      const isOut=msg.senderId?._id===currentUser.id||msg.senderId===currentUser.id;
+      const sender=msg.senderId?.username||msg.username||'Unknown';
+      const showSender=!isOut&&sender!==lastSender;
+      lastSender=sender;
+      const group=document.createElement('div');
+      group.className=`msg-group ${isOut?'out':'in'}`;
+      group.dataset.msgId=msg._id||msg.id;
+      group.innerHTML=`
+        ${showSender?`<div class="msg-sender">${escHtml(sender)}</div>`:''}
         <div class="msg-bubble">${escHtml(msg.content)}</div>
         <div class="msg-meta">
           <span>${formatTime(msg.createdAt)}</span>
-          ${isOut ? `<span class="msg-status ${msg.status || 'sent'}">${statusIcon(msg.status)}</span>` : ''}
+          ${isOut?`<span class="msg-status ${msg.status||'sent'}">${statusIcon(msg.status)}</span>`:''}
         </div>`;
       container.appendChild(group);
     });
   }
 
   function onNewMessage(msg) {
-    if (msg.roomId !== currentRoomId) { showToast('New message in another room'); return; }
-    const container = document.getElementById('messages');
+    if (msg.roomId!==currentRoomId) {
+      // mark unread and refresh sidebar
+      unreadRooms.add(msg.roomId);
+      renderRoomList(myRooms);
+      showToast(`💬 New message in another room`);
+      return;
+    }
+    const container=document.getElementById('messages');
     if (!container) return;
-    const isOut = msg.senderId === currentUser.id;
-    const group = document.createElement('div');
-    group.className = `msg-group ${isOut ? 'out' : 'in'}`;
-    group.dataset.msgId = msg.id;
-    group.innerHTML = `
-      ${!isOut ? `<div class="msg-sender">${escHtml(msg.username)}</div>` : ''}
+    const isOut=msg.senderId===currentUser.id;
+    const group=document.createElement('div');
+    group.className=`msg-group ${isOut?'out':'in'}`;
+    group.dataset.msgId=msg.id;
+    group.innerHTML=`
+      ${!isOut?`<div class="msg-sender">${escHtml(msg.username)}</div>`:''}
       <div class="msg-bubble">${escHtml(msg.content)}</div>
       <div class="msg-meta">
         <span>${formatTime(msg.createdAt)}</span>
-        ${isOut ? `<span class="msg-status ${msg.status||'sent'}">${statusIcon(msg.status)}</span>` : ''}
+        ${isOut?`<span class="msg-status ${msg.status||'sent'}">${statusIcon(msg.status)}</span>`:''}
       </div>`;
     container.appendChild(group);
     scrollToBottom();
-    if (!isOut) { socket.emit('mark_read', { roomId: currentRoomId }); localStorage.setItem(`lastSeen:${currentRoomId}`, new Date().toISOString()); }
+    if (!isOut) { socket.emit('mark_read',{roomId:currentRoomId}); localStorage.setItem(`lastSeen:${currentRoomId}`,new Date().toISOString()); }
   }
 
-  function onMessageStatus({ messageId, status }) {
-    const group = document.querySelector(`[data-msg-id="${messageId}"]`);
+  function onMessageStatus({messageId,status}) {
+    const group=document.querySelector(`[data-msg-id="${messageId}"]`);
     if (!group) return;
-    const el = group.querySelector('.msg-status');
-    if (el) { el.className = `msg-status ${status}`; el.textContent = statusIcon(status); }
+    const el=group.querySelector('.msg-status');
+    if (el) { el.className=`msg-status ${status}`; el.textContent=statusIcon(status); }
   }
 
   function updateReadReceipts() {
-    document.querySelectorAll('.msg-status.delivered').forEach(el => { el.className = 'msg-status read'; el.textContent = statusIcon('read'); });
+    document.querySelectorAll('.msg-status.delivered').forEach(el=>{ el.className='msg-status read'; el.textContent=statusIcon('read'); });
   }
 
-  function onMissedMessages({ messages }) {
+  function onMissedMessages({messages}) {
     if (messages?.length) { renderMessages(messages); showToast(`${messages.length} missed message(s) loaded`); scrollToBottom(); }
   }
 
-  function statusIcon(s) { return s === 'read' ? '✓✓' : s === 'delivered' ? '✓✓' : '✓'; }
+  function statusIcon(s) { return s==='read'?'✓✓':s==='delivered'?'✓✓':'✓'; }
 
   // ── SEND ──
-  function handleKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
-
+  function handleKey(e) { if (e.key==='Enter'&&!e.shiftKey) { e.preventDefault(); sendMessage(); } }
   function sendMessage() {
-    const input = document.getElementById('msg-input');
-    const content = input?.value.trim();
-    if (!content || !currentRoomId) return;
-    input.value = '';
-    stopTyping();
-    socket.emit('send_message', { roomId: currentRoomId, content }, (ack) => { if (ack?.error) showToast(ack.error); });
+    const input=document.getElementById('msg-input');
+    const content=input?.value.trim();
+    if (!content||!currentRoomId) return;
+    input.value=''; stopTyping();
+    socket.emit('send_message',{roomId:currentRoomId,content},(ack)=>{ if (ack?.error) showToast(ack.error); });
   }
 
   // ── TYPING ──
   function handleTyping() {
     if (!currentRoomId) return;
-    if (!isTyping) { isTyping = true; socket.emit('typing_start', { roomId: currentRoomId }); }
+    if (!isTyping) { isTyping=true; socket.emit('typing_start',{roomId:currentRoomId}); }
     clearTimeout(typingTimer);
-    typingTimer = setTimeout(stopTyping, 2000);
+    typingTimer=setTimeout(stopTyping,2000);
   }
-
   function stopTyping() {
-    if (isTyping && currentRoomId) { isTyping = false; socket.emit('typing_stop', { roomId: currentRoomId }); }
+    if (isTyping&&currentRoomId) { isTyping=false; socket.emit('typing_stop',{roomId:currentRoomId}); }
     clearTimeout(typingTimer);
   }
-
-  function onUserTyping({ userId, username }) {
-    if (userId === currentUser.id) return;
-    typingUsers[userId] = username; updateTypingUI();
-  }
-
-  function onUserStoppedTyping({ userId }) { delete typingUsers[userId]; updateTypingUI(); }
-
+  function onUserTyping({userId,username}) { if (userId===currentUser.id) return; typingUsers[userId]=username; updateTypingUI(); }
+  function onUserStoppedTyping({userId}) { delete typingUsers[userId]; updateTypingUI(); }
   function updateTypingUI() {
-    const area = document.getElementById('typing-area');
+    const area=document.getElementById('typing-area');
     if (!area) return;
-    const names = Object.values(typingUsers);
-    if (!names.length) { area.innerHTML = ''; return; }
-    const text = names.length === 1 ? `${names[0]} is typing` : `${names.slice(0,-1).join(', ')} and ${names.at(-1)} are typing`;
-    area.innerHTML = `${text} <span class="typing-dots"><span></span><span></span><span></span></span>`;
+    const names=Object.values(typingUsers);
+    if (!names.length) { area.innerHTML=''; return; }
+    const text=names.length===1?`${names[0]} is typing`:`${names.slice(0,-1).join(', ')} and ${names.at(-1)} are typing`;
+    area.innerHTML=`${text} <span class="typing-dots"><span></span><span></span><span></span></span>`;
   }
 
   // ── MODALS ──
   function openNewRoomModal() { document.getElementById('new-room-modal').classList.add('open'); }
-  function openDMModal()      { document.getElementById('dm-modal').classList.add('open'); }
-  function closeModal(id)     { document.getElementById(id).classList.remove('open'); }
-  document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); }));
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+  document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{ if (e.target===o) o.classList.remove('open'); }));
 
   // ── UTILS ──
-  async function apiFetch(path, method = 'GET', body = null) {
-    const opts = { method, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` } };
-    if (body) opts.body = JSON.stringify(body);
-    return fetch(`${API}${path}`, opts);
+  async function apiFetch(path,method='GET',body=null) {
+    const opts={method,headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`}};
+    if (body) opts.body=JSON.stringify(body);
+    return fetch(`${API}${path}`,opts);
   }
-
-  function formatTime(ts) { if (!ts) return ''; return new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); }
-  function escHtml(str = '') { return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  function scrollToBottom() { const m = document.getElementById('messages'); if (m) m.scrollTop = m.scrollHeight; }
+  function formatTime(ts) { if (!ts) return ''; return new Date(ts).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+  function escHtml(str='') { return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function scrollToBottom() { const m=document.getElementById('messages'); if (m) m.scrollTop=m.scrollHeight; }
   function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg; t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3000);
+    const t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),3000);
   }
 </script>
 </body>
