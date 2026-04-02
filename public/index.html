@@ -326,7 +326,26 @@
 
   function saveSession(data) {
     token=data.accessToken; currentUser=data.user;
-    localStorage.setItem('token',token); localStorage.setItem('user',JSON.stringify(currentUser));
+    localStorage.setItem('token',token);
+    localStorage.setItem('user',JSON.stringify(currentUser));
+    if (data.refreshToken) localStorage.setItem('refreshToken',data.refreshToken);
+    // auto-refresh access token every 12 minutes (before 15m expiry)
+    clearInterval(window._refreshTimer);
+    window._refreshTimer=setInterval(refreshAccessToken,12*60*1000);
+  }
+
+  async function refreshAccessToken() {
+    const refreshToken=localStorage.getItem('refreshToken');
+    if (!refreshToken) return;
+    try {
+      const res=await fetch(`${API}/auth/refresh`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refreshToken})});
+      if (!res.ok) { logout(); return; }
+      const data=await res.json();
+      token=data.accessToken;
+      localStorage.setItem('token',token);
+      // reconnect socket with new token
+      if (socket) { socket.auth.token=token; socket.disconnect().connect(); }
+    } catch { /* silent fail, will retry */ }
   }
 
   function logout() {
@@ -350,7 +369,14 @@
     socket=io(`${API}/chat`,{auth:{token},reconnection:true,reconnectionDelay:1000});
     socket.on('connect',()=>{ setBadge('● Online','#4ade80'); setInterval(()=>socket.emit('heartbeat'),20000); });
     socket.on('disconnect',()=>setBadge('● Offline','#f87171'));
-    socket.on('connect_error',()=>setBadge('● Auth Error','#f87171'));
+    socket.on('connect_error',async (err)=>{
+      if (err.message.includes('invalid')||err.message.includes('expired')||err.message.includes('Authentication')) {
+        setBadge('● Reconnecting...','#f59e0b');
+        await refreshAccessToken();
+      } else {
+        setBadge('● Offline','#f87171');
+      }
+    });
     socket.on('new_message',         onNewMessage);
     socket.on('message_status',      onMessageStatus);
     socket.on('user_typing',         onUserTyping);
